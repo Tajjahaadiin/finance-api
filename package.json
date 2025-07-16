@@ -1,0 +1,25 @@
+{
+  "name": "finance-api",
+  "version": "1.0.0",
+  "description": "A simple API fro finance tracker Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/tajjuddiinauliya/finance-api.git"
+  },
+  "keywords": [
+    "finance",
+    "api",
+    "node.js",
+    "javascript"
+  ],
+  "author": "Tajjuddiin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/tajjuddiinauliya/finance-api/issues"
+  },
+  "homepage": "https://gitlab.com/tajjuddiinauliya/finance-api#readme"
+}
