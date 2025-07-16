@@ -3,14 +3,13 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "localhost";
-app.use(express.json());
 
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig.development);
 
-app.get("/", (req, res) => {
-  res.end("wellcome to Finance Tracker API");
-});
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
 
 app.get("/api/transactions", async (req, res) => {
   try {
