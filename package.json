@@ -4,6 +4,7 @@
   "description": "A simple API fro finance tracker Application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://gitlab.com/tajjuddiinauliya/finance-api/issues"
   },
-  "homepage": "https://gitlab.com/tajjuddiinauliya/finance-api#readme"
+  "homepage": "https://gitlab.com/tajjuddiinauliya/finance-api#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
