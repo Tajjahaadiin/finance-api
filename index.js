@@ -5,8 +5,11 @@ const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "localhost";
 
 const knexConfig = require("./knexfile");
-const knex = require("knex")(knexConfig.development);
+const environtment = process.env.NODE_ENV || "development";
+const knex = require("knex")(knexConfig[environtment]);
 
+const cors = require("cors");
+app.use(cors());
 const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
