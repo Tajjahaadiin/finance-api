@@ -1,0 +1,26 @@
+# .gitlab-ci.yml
+# This file defines the CI/CD pipeline for your project.
+
+# Define the stages of your pipeline
+stages:
+  - deploy # We only have one stage for now: deploying the static frontend
+
+# Define the 'pages' job for GitLab Pages deployment
+pages:
+  stage: deploy # This job belongs to the 'deploy' stage
+  image: node:lts # Use a Node.js image as base, in case we need npm for frontend builds (e.g., if you used React/Vue)
+  script:
+    - echo 'Deploying static site to GitLab Pages...'
+    - mkdir .public # Create a temporary directory to copy frontend files into
+    - cp -r public/* .public # Copy all files from 'public' to '.public'
+    - mv .public public # Rename '.public' to 'public' for GitLab Pages
+    # GitLab Pages expects your static files to be in a directory named 'public'
+    # in the root of your artifacts. Our frontend is already in 'public',
+    # so we just need to ensure that 'public' is at the root of the artifact.
+    # The cp -r and mv trick ensures this for our current directory structure.
+  artifacts:
+    paths:
+      - public # This tells GitLab to save the 'public' directory as artifacts
+    expire_in: 1 week # How long to keep the artifacts for
+  only:
+    - main # This job will only run when changes are pushed to the 'main' branch
